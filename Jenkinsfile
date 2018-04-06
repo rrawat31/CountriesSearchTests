@@ -12,14 +12,14 @@ stage ('Build') {
 
    
     // publish html
-    publishHTML ([
-        allowMissing: false,
-        alwaysLinkToLastBuild: false,
-        keepAll: true,
-        reportDir: '/target/site/serenity',
-        reportFiles: 'index.html',
-        reportName: "RCov Report"
-      ])
+   publishHTML([allowMissing: false, 
+   alwaysLinkToLastBuild: false, 
+   keepAll: false, 
+   reportDir: '$Workspace/target/site/serenity', 
+   reportFiles: 'index.html', 
+   reportName: 'HTML Report', 
+   reportTitles: ''])
+
 
   }
 }
