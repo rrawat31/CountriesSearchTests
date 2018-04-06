@@ -10,21 +10,13 @@ stage ('Build') {
     // Checkout
     checkout scm
 
-    // install required bundles
-    sh 'bundle install'
-
-    // build and run tests with coverage
-    sh 'bundle exec rake build spec'
-
-    // Archive the built artifacts
-    archive (includes: 'pkg/*.gem')
-
+   
     // publish html
     publishHTML ([
         allowMissing: false,
         alwaysLinkToLastBuild: false,
         keepAll: true,
-        reportDir: 'coverage',
+        reportDir: '$Workspace/target/site/serenity',
         reportFiles: 'index.html',
         reportName: "RCov Report"
       ])
