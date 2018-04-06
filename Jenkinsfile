@@ -9,13 +9,14 @@ stage ('Build') {
   node {
     // Checkout
     checkout scm
+    sh "mvn clean verify"
 
    
     // publish html
    publishHTML([allowMissing: false, 
    alwaysLinkToLastBuild: false, 
    keepAll: false, 
-   reportDir: 'serenity', 
+   reportDir: 'target/site/serenity', 
    reportFiles: 'index.html', 
    reportName: 'HTML Report', 
    reportTitles: ''])
