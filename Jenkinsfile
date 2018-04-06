@@ -9,7 +9,9 @@ stage ('Build') {
   node {
     // Checkout
     checkout scm
-    sh "mvn clean verify"
+    withEnv( ["PATH+MAVEN=${tool Maven_Install}/bin"] ) {
+    	sh "mvn clean verify"
+	}
 
    
     // publish html
