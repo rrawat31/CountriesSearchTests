@@ -16,7 +16,7 @@ stage ('Build') {
         allowMissing: false,
         alwaysLinkToLastBuild: false,
         keepAll: true,
-        reportDir: '$Workspace/target/site/serenity',
+        reportDir: '/target/site/serenity',
         reportFiles: 'index.html',
         reportName: "RCov Report"
       ])
