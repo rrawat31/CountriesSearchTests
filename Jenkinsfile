@@ -9,18 +9,17 @@ stage ('Build') {
   node {
     // Checkout
     checkout scm
-	sh "/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_Install/bin/mvn clean verify"
-
-   
-    // publish html
-   publishHTML([allowMissing: false, 
-   alwaysLinkToLastBuild: false, 
-   keepAll: false, 
-   reportDir: 'target/site/serenity', 
-   reportFiles: 'index.html', 
-   reportName: 'HTML Report', 
-   reportTitles: ''])
-
-
+    try {
+		sh "/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_Install/bin/mvn clean verify"
+	} finally {
+		// publish html
+	   	publishHTML([allowMissing: false, 
+	   	alwaysLinkToLastBuild: false, 
+	   	keepAll: false, 
+	   	reportDir: 'target/site/serenity', 
+	   	reportFiles: 'index.html', 
+	   	reportName: 'HTML Report', 
+	   	reportTitles: ''])
+	}
   }
 }
