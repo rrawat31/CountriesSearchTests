@@ -25,7 +25,7 @@ public class CountriesSearchTests {
 		RestAssured.
 		when().get("http://services.groupkt.com/country/get/iso2code/IN").
 		then().assertThat().statusCode(200).
-		and().body("RestResponse.result.name", is("India"));
+		and().body("RestResponse.result.name", is("Indsia"));
 	}
 
 	@Test
