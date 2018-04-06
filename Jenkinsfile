@@ -15,7 +15,7 @@ stage ('Build') {
    publishHTML([allowMissing: false, 
    alwaysLinkToLastBuild: false, 
    keepAll: false, 
-   reportDir: '$Workspace/target/site/serenity', 
+   reportDir: 'serenity', 
    reportFiles: 'index.html', 
    reportName: 'HTML Report', 
    reportTitles: ''])
