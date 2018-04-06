@@ -9,9 +9,7 @@ stage ('Build') {
   node {
     // Checkout
     checkout scm
-    withEnv( ["PATH+MAVEN=${tool Maven_Install}/bin"] ) {
-    	sh "mvn clean verify"
-	}
+	sh "/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_Install/bin/mvn clean verify"
 
    
     // publish html
