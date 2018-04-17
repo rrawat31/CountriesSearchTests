@@ -33,7 +33,7 @@ public class CountriesSearchTests {
 		RestAssured.
 		when().get("http://services.groupkt.com/country/get/iso2code/BR").
 		then().assertThat().statusCode(200).
-		and().body("RestResponse.result.name", is("Brazil"));
+		and().body("RestResponse.result.name", is("Brazil-Incorrect"));
 	}
 	@Test
 	public void verifyThatWeCanFindUnitedStatesOfAmericaUsingTheCodeUS1(){
